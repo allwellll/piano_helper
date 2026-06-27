@@ -1,0 +1,29 @@
+{
+  "defaultSongId": "under-mount-fuji",
+  "songs": [
+    {
+      "id": "under-mount-fuji",
+      "title": "富士山下",
+      "subtitle": "Under Mount Fuji",
+      "file": "./songs/under-mount-fuji.json"
+    },
+    {
+      "id": "hua-hai",
+      "title": "花海",
+      "subtitle": "周杰伦",
+      "file": "./songs/hua-hai.json"
+    },
+    {
+      "id": "qing-hua-ci",
+      "title": "青花瓷",
+      "subtitle": "周杰伦",
+      "file": "./songs/qing-hua-ci.json"
+    },
+    {
+      "id": "qing-tian",
+      "title": "晴天",
+      "subtitle": "Jay Chou",
+      "file": "./songs/qing-tian.json"
+    }
+  ]
+}

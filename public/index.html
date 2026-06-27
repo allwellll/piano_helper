@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>晴天 - 钢琴下落音符原型</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Piano Guide Prototype</p>
+        <h1>《晴天》钢琴指引演示</h1>
+        <p class="lede">
+          按照你给的简谱先做了一版“下落音符 + 对应按键点击”的网页原型。
+          目前节奏做了演示化简，重点先看交互和视觉方向。
+        </p>
+      </div>
+      <div class="hero-card">
+        <div class="meta-row">
+          <span>调式</span>
+          <strong>1 = G</strong>
+        </div>
+        <div class="meta-row">
+          <span>拍号</span>
+          <strong>4 / 4</strong>
+        </div>
+        <div class="meta-row">
+          <span>模式</span>
+          <strong>简谱落键</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="player-panel">
+        <div class="control-bar">
+          <div class="button-group">
+            <button id="startButton" class="primary">开始 / 暂停</button>
+            <button id="restartButton">重新开始</button>
+            <button id="fullscreenButton">全屏瀑布流</button>
+          </div>
+
+          <label class="slider-wrap song-picker">
+            <span>鏇叉洸</span>
+            <select id="songSelect"></select>
+          </label>
+
+          <label class="slider-wrap">
+            <span>速度</span>
+            <input id="speedRange" type="range" min="0.7" max="1.5" step="0.05" value="1">
+            <strong id="speedValue">1.00x</strong>
+          </label>
+
+          <label class="toggle">
+            <input id="autoplayToggle" type="checkbox">
+            <span>自动示范按键</span>
+          </label>
+        </div>
+
+        <div class="status-bar">
+          <div class="status-chip">
+            <span>当前段落</span>
+            <strong id="phraseLabel">前奏</strong>
+          </div>
+          <div class="status-chip">
+            <span>命中</span>
+            <strong id="scoreLabel">0</strong>
+          </div>
+          <div class="status-chip">
+            <span>连击</span>
+            <strong id="comboLabel">0</strong>
+          </div>
+          <div class="status-chip">
+            <span>提示</span>
+            <strong id="hintLabel">看见落键就点对应琴键</strong>
+          </div>
+        </div>
+
+        <section class="stage-card">
+          <div id="stage" class="stage">
+            <div class="lane-backdrop"></div>
+            <div id="laneLayer" class="lane-layer"></div>
+            <canvas id="noteCanvas" class="note-canvas"></canvas>
+            <div class="judge-line">
+              <span>点击线</span>
+            </div>
+          </div>
+          <div id="keyboard" class="keyboard"></div>
+        </section>
+      </section>
+
+      <aside class="info-panel">
+        <section class="info-card">
+          <h2>这版先验证什么</h2>
+          <ul>
+            <li>蓝色右手主旋律需要用户跟弹</li>
+            <li>暖色左手伴奏会自动铺底帮助练习</li>
+            <li>琴键显示了对应快捷键，能直接键盘跟弹</li>
+            <li>音色改成了更接近采样钢琴的播放方式</li>
+          </ul>
+        </section>
+
+        <section class="info-card">
+          <h2>练习提示</h2>
+          <div class="mapping-grid">
+            <span>蓝色 = 右手主旋律</span>
+            <span>暖色 = 左手伴奏</span>
+            <span>Z - / = 低音区快捷键</span>
+            <span>A - K = 中高音快捷键</span>
+            <span>自动示范只接管右手</span>
+            <span>左手会始终自动伴奏</span>
+          </div>
+        </section>
+
+        <section class="info-card">
+          <h2>说明</h2>
+          <p>
+            这版已经把《晴天》扩成更完整的练习页结构，重点先验证整首段落组织、左右手分工、
+            键盘映射提示和更自然的钢琴音色方向。后面还可以继续换成真实采样包或 MIDI 驱动。
+          </p>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
