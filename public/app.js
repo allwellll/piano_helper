@@ -899,7 +899,7 @@ function updateScene(timestamp = performance.now()) {
       continue;
     }
 
-    if (appState.autoPlay && appState.playing && note.hand === "right" && note.interactive && !note.autoPlayed && beat >= note.start) {
+    if (appState.autoPlay && appState.playing && note.interactive && !note.autoPlayed && beat >= note.start) {
       triggerAutoRightNote(note);
     }
 
@@ -1134,7 +1134,7 @@ async function init() {
 
   dom.autoplayToggle.addEventListener("change", (event) => {
     appState.autoPlay = event.target.checked;
-    setHint(`??????${appState.autoPlay ? "???" : "???"}`, 900);
+    setHint(`自动示范双手${appState.autoPlay ? "已开启" : "已关闭"}`, 900);
   });
 
   dom.songSelect?.addEventListener("change", (event) => {
